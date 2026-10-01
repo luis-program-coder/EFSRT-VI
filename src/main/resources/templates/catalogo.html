@@ -1,0 +1,206 @@
+```html
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <title>Catálogo | TechNova</title>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet"
+          href="/css/style.css">
+
+    <script defer
+            src="/js/app.js">
+    </script>
+
+</head>
+
+
+<body>
+
+    <header>
+
+        <div class="wrap nav">
+
+            <a class="logo"
+               href="/">
+                Tech<span>Nova</span>
+            </a>
+
+
+            <nav>
+
+                <a href="/">
+                    Inicio
+                </a>
+
+                <a href="/catalogo">
+                    Catálogo
+                </a>
+
+                <a href="/contacto">
+                    Contáctanos
+                </a>
+
+                <a href="/ubicacion">
+                    Ubícanos
+                </a>
+
+                <a href="/admin/productos">
+                    Administración
+                </a>
+
+                <a href="/carrito">
+                    🛒 Carrito
+                </a>
+
+            </nav>
+
+        </div>
+
+    </header>
+
+
+    <main class="wrap sec">
+
+
+        <div class="title">
+
+            <h1>
+                Catálogo
+            </h1>
+
+        </div>
+
+
+        <!-- Filtros -->
+
+        <form class="filters">
+
+            <input
+                name="q"
+                th:value="${q}"
+                placeholder="Buscar producto...">
+
+
+            <select name="categoria">
+
+                <option value="">
+                    Todas las categorías
+                </option>
+
+
+                <option
+                    th:each="c : ${categorias}"
+                    th:value="${c.id}"
+                    th:text="${c.nombre}">
+                </option>
+
+            </select>
+
+
+            <button class="btn">
+                Buscar
+            </button>
+
+        </form>
+
+
+        <!-- Productos -->
+
+        <div class="grid">
+
+
+            <article
+                class="card"
+                th:each="p : ${productos}">
+
+
+                <img
+                    th:src="${p.imagen}"
+                    th:alt="${p.nombre}"
+                    onerror="this.onerror=null;this.src='/img/producto-placeholder.svg';">
+
+
+                <div>
+
+
+                    <small
+                        th:text="${p.marca != null ? p.marca.nombre : ''}">
+                    </small>
+
+
+                    <h3
+                        th:text="${p.nombre}">
+                    </h3>
+
+
+                    <p
+                        th:text="${p.descripcion}">
+                    </p>
+
+
+                    <b
+                        th:text="'Stock: ' + ${p.stock}">
+                    </b>
+
+
+                    <!-- Precio -->
+
+                    <div class="price">
+
+
+                        <del
+                            th:if="${p.precioOferta != null}"
+                            th:text="'S/ ' + ${p.precio}">
+                        </del>
+
+
+                        <b
+                            th:text="'S/ ' + ${p.precioFinal}">
+                        </b>
+
+
+                    </div>
+
+
+                    <!-- Agregar al carrito -->
+
+                    <form
+                        th:if="${p.stock > 0}"
+                        th:action="@{'/carrito/agregar/' + ${p.id}}"
+                        method="post">
+
+
+                        <input
+                            type="hidden"
+                            th:name="${_csrf.parameterName}"
+                            th:value="${_csrf.token}">
+
+
+                        <button class="btn full">
+                            🛒 Agregar
+                        </button>
+
+                    </form>
+
+
+                </div>
+
+            </article>
+
+
+        </div>
+
+    </main>
+
+
+</body>
+
+</html>
+```

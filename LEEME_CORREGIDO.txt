@@ -1,0 +1,24 @@
+VERSION CORREGIDA - TECHNOVA
+
+1) Ejecuta database/tienda_computadoras_FINAL.sql en MySQL Workbench.
+2) Revisa src/main/resources/application.properties y coloca tu clave de MySQL.
+3) Abre el proyecto en Spring Tools.
+4) Run As > Spring Boot App.
+5) Abre http://localhost:8081
+6) Administración: http://localhost:8081/admin/dashboard
+7) Usuario: admin
+8) Contraseña: admin123
+
+CORRECCIONES PRINCIPALES:
+- Se corrigió el estado de producto para que el TINYINT(1) de MySQL se maneje como Boolean.
+- Se corrigió el filtro que dejaba vacío el catálogo y la pantalla de inicio.
+- Se corrigió el CRUD de productos (nuevo, editar, guardar y desactivar).
+- Se corrigió la carga de categorías y marcas.
+- Se corrigió la visualización de imágenes y se agregó imagen de respaldo.
+- Se corrigió la información del cliente en ventas y comprobantes.
+- Se corrigió el flujo de stock y venta.
+- Se renombró el controlador REST para evitar conflicto con la anotación @RestController.
+- Se dejaron 15 tablas en el script SQL principal.
+- Se mejoró el dashboard y los botones de administración.
+
+NOTA: YAPE, PLIN y tarjeta quedan registrados como método de pago para fines académicos; no procesan dinero real sin una integración oficial.

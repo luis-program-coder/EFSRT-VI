@@ -1,0 +1,676 @@
+/* =========================================
+   CONFIGURACIÓN GENERAL
+   ========================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Segoe UI, Arial;
+    color: #10233d;
+    background: #f5f7fb;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+
+/* =========================================
+   CONTENEDOR
+   ========================================= */
+
+.wrap {
+    width: min(1180px, 92%);
+    margin: auto;
+}
+
+
+/* =========================================
+   HEADER Y NAVEGACIÓN
+   ========================================= */
+
+header {
+    background: #081426;
+    color: #fff;
+    position: sticky;
+    top: 0;
+    z-index: 5;
+}
+
+.nav {
+    height: 74px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    font-size: 29px;
+    font-weight: 900;
+}
+
+.logo span,
+h2 span {
+    color: rgb(0, 128, 255);/*tituloTechNova*/
+}
+
+nav {
+    display: flex;
+    gap: 24px;
+    font-weight: 700;
+}
+
+nav a:hover {
+    color: #18b8f2;
+}
+
+
+/* =========================================
+   HERO
+   ========================================= */
+
+.hero {
+    background: linear-gradient(
+        135deg,
+        #091529,
+        #1d406d
+    );
+    color: #fff;
+    padding: 80px 0;
+}
+
+.hero-in {
+    display: grid;
+    grid-template-columns: 1.5fr 0.8fr;
+    gap: 40px;
+    align-items: center;
+}
+
+.hero h1 {
+    font-size: 50px;
+    margin: 12px 0;
+}
+
+.hero p {
+    font-size: 19px;
+    color: #d7e4f3;
+    line-height: 1.6;
+}
+
+.hero small,
+.sec > small,
+.title small {
+    color: #18b8f2;
+    font-weight: 900;
+    letter-spacing: 2px;
+}
+
+.hero-box {
+    height: 240px;
+    border: 1px solid rgb(255, 255, 255);
+    border-radius: 30px;
+    background: #fff1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    font-size: 25px;
+}
+
+
+/* =========================================
+   SECCIONES Y TÍTULOS
+   ========================================= */
+
+.sec {
+    padding: 60px 0;
+}
+
+.title {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    margin-bottom: 25px;
+}
+
+.title h1,
+.title h2 {
+    margin: 6px 0;
+}
+
+
+/* =========================================
+   BOTONES
+   ========================================= */
+
+.btn {
+    border: 0;
+    background: #18b8f2;
+    color: #031522;
+    border-radius: 9px;
+    padding: 12px 18px;
+    font-weight: 900;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.btn.secondary {
+    background: #e7edf4;
+}
+
+.full {
+    width: 100%;
+}
+
+.whatsapp {
+    background: #25d366;
+    color: #fff;
+}
+
+
+/* =========================================
+   GRID Y TARJETAS
+   ========================================= */
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 22px;
+}
+
+.card {
+    background: #fff;
+    border: 1px solid #e0e6ee;
+    border-radius: 17px;
+    overflow: hidden;
+    box-shadow: 0 8px 25px #10233d0c;
+}
+
+.card > img {
+    width: 100%;
+    height: 195px;
+    object-fit: cover;
+}
+
+.card > div {
+    padding: 17px;
+}
+
+.card small {
+    color: #72839a;
+}
+
+.card p {
+    color: #66768d;
+    line-height: 1.45;
+    min-height: 42px;
+}
+
+
+/* =========================================
+   PRECIOS
+   ========================================= */
+
+.price {
+    display: flex;
+    gap: 9px;
+    align-items: center;
+    margin: 15px 0;
+}
+
+.price b {
+    font-size: 22px;
+}
+
+.price del {
+    color: #9aa5b1;
+}
+
+
+/* =========================================
+   BENEFICIOS
+   ========================================= */
+
+.benefits {
+    background: #fff;
+    border-block: 1px solid #e1e7ee;
+    padding: 27px 0;
+}
+
+.four {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.four div {
+    display: grid;
+    grid-template-columns: 35px 1fr;
+}
+
+.four span {
+    grid-column: 2;
+    color: #718096;
+}
+
+
+/* =========================================
+   FILTROS
+   ========================================= */
+
+.filters {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 25px;
+}
+
+.filters input,
+.filters select,
+.form input,
+.form select,
+.form textarea {
+    padding: 12px;
+    border: 1px solid #d2dbe7;
+    border-radius: 8px;
+    background: #fff;
+    font: inherit;
+    width: 100%;
+}
+
+.filters input {
+    flex: 1;
+}
+
+
+/* =========================================
+   CARRITO
+   ========================================= */
+
+.cart,
+.receipt,
+.summary,
+.form {
+    background: #fff;
+    border: 1px solid #dfe6ee;
+    border-radius: 15px;
+    padding: 25px;
+}
+
+.cartrow {
+    display: flex;
+    align-items: center;
+    gap: 17px;
+    border-bottom: 1px solid #e6ebf1;
+    padding: 13px 0;
+}
+
+.cartrow img {
+    width: 85px;
+    height: 65px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.grow {
+    flex: 1;
+}
+
+.danger {
+    color: #c63c47;
+    font-weight: 800;
+    text-decoration: none;
+}
+
+
+/* =========================================
+   ACCIONES
+   ========================================= */
+
+.actions {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+    margin-top: 20px;
+}
+
+.actions .btn {
+    border: 0;
+}
+
+.center {
+    justify-content: center;
+}
+
+
+/* =========================================
+   CHECKOUT
+   ========================================= */
+
+.checkout {
+    display: grid;
+    grid-template-columns: 1.5fr 0.7fr;
+    gap: 25px;
+}
+
+.form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+.form label {
+    font-weight: 800;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.wide {
+    grid-column: 1 / -1;
+}
+
+.note {
+    padding: 14px;
+    background: #eaf9ff;
+    border-radius: 8px;
+    color: #24586d;
+}
+
+
+/* =========================================
+   RESUMEN
+   ========================================= */
+
+.summary > div {
+    display: flex;
+    justify-content: space-between;
+    padding: 9px 0;
+}
+
+
+/* =========================================
+   COMPROBANTE
+   ========================================= */
+
+.receipt {
+    max-width: 850px;
+    margin: auto;
+}
+
+.receipt table,
+.tablewrap table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th,
+td {
+    padding: 11px;
+    border-bottom: 1px solid #e1e7ee;
+    text-align: left;
+}
+
+.totals {
+    margin-left: auto;
+    width: 300px;
+}
+
+.totals p,
+.totals h2 {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+/* =========================================
+   CONTACTO
+   ========================================= */
+
+.contact {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.contact > div,
+.location > div {
+    background: #fff;
+    border: 1px solid #dfe6ee;
+    border-radius: 15px;
+    padding: 28px;
+}
+
+
+/* =========================================
+   UBICACIÓN
+   ========================================= */
+
+.location {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.map {
+    min-height: 270px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #dfeae8;
+    font-size: 30px;
+}
+
+.map span {
+    font-size: 14px;
+    color: #677;
+}
+
+
+/* =========================================
+   ADMINISTRACIÓN
+   ========================================= */
+
+.tabs {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 18px;
+}
+
+.tabs a {
+    padding: 10px 14px;
+    background: rgb(128, 255, 255);
+    border: 1px solid #dfe6ee;
+    border-radius: 8px;
+    font-weight: 800;
+}
+
+.tabs .active {
+    background: #081426;
+    color: #fff;
+}
+
+.tablewrap {
+    overflow: auto;
+    background: #fff;
+    border: 1px solid #dfe6ee;
+    border-radius: 15px;
+}
+
+.admin-thumb {
+    width: 70px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 8px;
+    background: #eef3f8;
+}
+
+.edit {
+    font-weight: 700;
+    text-decoration: none;
+    margin-right: 10px;
+}
+
+.status-ok {
+    color: #15803d;
+    font-weight: 800;
+}
+
+.status-off {
+    color: #b91c1c;
+    font-weight: 800;
+}
+
+
+/* =========================================
+   CONTENEDOR DEL LOGIN / ADMIN
+   ========================================= */
+
+.container {
+    max-width: 1100px;
+    margin: 30px auto;
+    padding: 20px;
+}
+
+
+/* =========================================
+   FORMULARIOS GENERALES
+   ========================================= */
+
+form {
+    display: grid;
+    gap: 12px;
+    max-width: 420px;
+}
+
+input,
+select,
+button {
+    padding: 10px;
+}
+
+
+/* =========================================
+   CARRITO VACÍO
+   ========================================= */
+
+.empty {
+    text-align: center;
+    background: #fff;
+    border: 1px solid #dfe6ee;
+    border-radius: 15px;
+    padding: 60px 20px;
+    font-size: 42px;
+}
+
+.empty h2 {
+    font-size: 24px;
+}
+
+
+/* =========================================
+   TAMAÑO ESTRECHO
+   ========================================= */
+
+.narrow {
+    max-width: 900px;
+}
+
+
+/* =========================================
+   RESPONSIVE - TABLET
+   ========================================= */
+
+@media (max-width: 900px) {
+
+    .grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .hero-in,
+    .checkout,
+    .location {
+        grid-template-columns: 1fr;
+    }
+
+    .four,
+    .contact {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    nav {
+        gap: 10px;
+        font-size: 13px;
+    }
+
+}
+
+
+/* =========================================
+   RESPONSIVE - MÓVIL
+   ========================================= */
+
+@media (max-width: 600px) {
+
+    nav {
+        flex-wrap: wrap;
+        justify-content: flex-end;
+    }
+
+    .nav {
+        height: auto;
+        padding: 15px 0;
+    }
+
+    .grid,
+    .four,
+    .contact,
+    .form {
+        grid-template-columns: 1fr;
+    }
+
+    .wide {
+        grid-column: auto;
+    }
+
+    .filters {
+        flex-wrap: wrap;
+    }
+
+    .hero h1 {
+        font-size: 38px;
+    }
+
+}
+
+
+/* =========================================
+   IMPRESIÓN
+   ========================================= */
+
+@media print {
+
+    header,
+    .actions {
+        display: none !important;
+    }
+
+    body {
+        background: #fff;
+    }
+
+    .receipt {
+        border: 0;
+    }
+
+    .sec {
+        padding: 0;
+    }
+
+}

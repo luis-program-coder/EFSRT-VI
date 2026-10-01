@@ -1,0 +1,156 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <title>
+        Detalle de venta | TechNova
+    </title>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet"
+          href="/css/style.css">
+
+    <script defer
+            src="/js/app.js">
+    </script>
+
+</head>
+
+
+<body>
+
+
+    <!-- ENCABEZADO -->
+
+    <header>
+
+        <div class="wrap nav">
+
+
+            <a class="logo"
+               href="/">
+
+                Tech<span>Nova</span>
+
+            </a>
+
+
+            <nav>
+
+                <a href="/">
+                    Inicio
+                </a>
+
+                <a href="/catalogo">
+                    Catálogo
+                </a>
+
+                <a href="/contacto">
+                    Contáctanos
+                </a>
+
+                <a href="/ubicacion">
+                    Ubícanos
+                </a>
+
+                <a href="/admin/productos">
+                    Administración
+                </a>
+
+                <a href="/carrito">
+                    🛒 Carrito
+                </a>
+
+            </nav>
+
+
+        </div>
+
+    </header>
+
+
+    <!-- DETALLE DE VENTA -->
+
+    <main class="wrap sec narrow">
+
+
+        <div class="receipt">
+
+
+            <h1
+                th:text="'Venta ' + ${pedido.numero}">
+            </h1>
+
+
+            <p
+                th:text="${pedido.clienteNombre}">
+            </p>
+
+
+            <p
+                th:text="${pedido.comprobante} + ' · ' + ${pedido.metodoPago}">
+            </p>
+
+
+            <!-- PRODUCTOS DE LA VENTA -->
+
+            <table>
+
+
+                <tr
+                    th:each="d : ${detalles}">
+
+
+                    <td
+                        th:text="${d.productoNombre}">
+                    </td>
+
+
+                    <td
+                        th:text="${d.cantidad}">
+                    </td>
+
+
+                    <td
+                        th:text="'S/ ' + ${d.importe}">
+                    </td>
+
+
+                </tr>
+
+
+            </table>
+
+
+            <!-- TOTAL -->
+
+            <h2
+                th:text="'TOTAL S/ ' + ${pedido.total}">
+            </h2>
+
+
+        </div>
+
+
+        <!-- BOTÓN IMPRIMIR -->
+
+        <button
+            class="btn"
+            onclick="window.print()">
+
+            🖨️ Imprimir
+
+        </button>
+
+
+    </main>
+
+
+</body>
+
+</html>

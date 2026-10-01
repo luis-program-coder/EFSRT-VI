@@ -1,0 +1,1 @@
+package com.technova.repo; import com.technova.model.Usuario; import org.springframework.data.jpa.repository.JpaRepository; import java.util.*; public interface UsuarioRepository extends JpaRepository<Usuario,Long>{Optional<Usuario> findByUsernameAndEstadoTrue(String username);}

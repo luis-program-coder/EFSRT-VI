@@ -1,0 +1,164 @@
+
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <title>Ventas | TechNova</title>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet"
+          href="/css/style.css">
+
+    <script defer
+            src="/js/app.js">
+    </script>
+
+</head>
+
+<body>
+
+    <header>
+
+        <div class="wrap nav">
+
+            <a class="logo"
+               href="/">
+                Tech<span>Nova</span>
+            </a>
+
+            <nav>
+
+                <a href="/">
+                    Inicio
+                </a>
+
+                <a href="/catalogo">
+                    Catálogo
+                </a>
+
+                <a href="/contacto">
+                    Contáctanos
+                </a>
+
+                <a href="/ubicacion">
+                    Ubícanos
+                </a>
+
+                <a href="/admin/productos">
+                    Administración
+                </a>
+
+                <a href="/carrito">
+                    🛒 Carrito
+                </a>
+
+            </nav>
+
+        </div>
+
+    </header>
+
+
+    <main class="wrap sec">
+
+        <h1>
+            Ventas y pedidos
+        </h1>
+
+
+        <div class="tabs">
+
+            <a href="/admin/productos">
+                Productos
+            </a>
+
+            <a class="active"
+               href="/admin/pedidos">
+                Ventas / Pedidos
+            </a>
+
+        </div>
+
+
+        <div class="tablewrap">
+
+            <table>
+
+                <tr>
+
+                    <th>
+                        N.º
+                    </th>
+
+                    <th>
+                        Fecha
+                    </th>
+
+                    <th>
+                        Cliente
+                    </th>
+
+                    <th>
+                        Comprobante
+                    </th>
+
+                    <th>
+                        Pago
+                    </th>
+
+                    <th>
+                        Total
+                    </th>
+
+                    <th>
+                    </th>
+
+                </tr>
+
+
+                <tr th:each="p : ${pedidos}">
+
+                    <td th:text="${p.numero}">
+                    </td>
+
+                    <td th:text="${#temporals.format(p.fecha, 'dd/MM/yyyy HH:mm')}">
+                    </td>
+
+                    <td th:text="${p.clienteNombre}">
+                    </td>
+
+                    <td th:text="${p.comprobante}">
+                    </td>
+
+                    <td th:text="${p.metodoPago}">
+                    </td>
+
+                    <td th:text="'S/ ' + ${p.total}">
+                    </td>
+
+                    <td>
+
+                        <a class="edit"
+                           th:href="@{'/admin/pedidos/' + ${p.id}}">
+                            Ver
+                        </a>
+
+                    </td>
+
+                </tr>
+
+            </table>
+
+        </div>
+
+    </main>
+
+</body>
+
+</html>
+

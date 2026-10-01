@@ -1,0 +1,165 @@
+```html
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <title>Carrito | TechNova</title>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet"
+          href="/css/style.css">
+
+    <script defer
+            src="/js/app.js">
+    </script>
+
+</head>
+
+
+<body>
+
+    <header>
+
+        <div class="wrap nav">
+
+            <a class="logo"
+               href="/">
+                Tech<span>Nova</span>
+            </a>
+
+
+            <nav>
+
+                <a href="/">
+                    Inicio
+                </a>
+
+                <a href="/catalogo">
+                    Catálogo
+                </a>
+
+                <a href="/contacto">
+                    Contáctanos
+                </a>
+
+                <a href="/ubicacion">
+                    Ubícanos
+                </a>
+
+                <a href="/admin/productos">
+                    Administración
+                </a>
+
+                <a href="/carrito">
+                    🛒 Carrito
+                </a>
+
+            </nav>
+
+        </div>
+
+    </header>
+
+
+    <main class="wrap sec">
+
+        <h1>
+            Carrito de ventas
+        </h1>
+
+
+        <!-- Carrito vacío -->
+
+        <div
+            th:if="${#lists.isEmpty(cart)}"
+            class="empty">
+
+            🛒
+
+            <h2>
+                Tu carrito está vacío
+            </h2>
+
+            <a class="btn"
+               href="/catalogo">
+                Ver productos
+            </a>
+
+        </div>
+
+
+        <!-- Carrito con productos -->
+
+        <div
+            th:unless="${#lists.isEmpty(cart)}"
+            class="cart">
+
+
+            <div
+                class="cartrow"
+                th:each="i : ${cart}">
+
+
+                <img
+                    th:src="${i.imagen}"
+                    th:alt="${i.nombre}"
+                    onerror="this.onerror=null;this.src='/img/producto-placeholder.svg';">
+
+
+                <div class="grow">
+
+                    <h3
+                        th:text="${i.nombre}">
+                    </h3>
+
+                    <span
+                        th:text="'Cantidad: ' + ${i.cantidad}">
+                    </span>
+
+                </div>
+
+
+                <b
+                    th:text="'S/ ' + ${i.precio * i.cantidad}">
+                </b>
+
+
+                <a
+                    class="danger"
+                    th:href="@{'/carrito/eliminar/' + ${i.id}}">
+                    Eliminar
+                </a>
+
+            </div>
+
+
+            <div class="actions">
+
+                <a
+                    class="btn secondary"
+                    href="/carrito/vaciar">
+                    Vaciar
+                </a>
+
+
+                <a
+                    class="btn"
+                    href="/checkout">
+                    Continuar compra →
+                </a>
+
+            </div>
+
+        </div>
+
+    </main>
+
+</body>
+
+</html>
+```

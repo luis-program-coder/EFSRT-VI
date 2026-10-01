@@ -1,0 +1,243 @@
+```html
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <title>Finalizar compra | TechNova</title>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet"
+          href="/css/style.css">
+
+    <script defer
+            src="/js/app.js">
+    </script>
+
+</head>
+
+
+<body>
+
+    <header>
+
+        <div class="wrap nav">
+
+            <a class="logo"
+               href="/">
+                Tech<span>Nova</span>
+            </a>
+
+
+            <nav>
+
+                <a href="/">
+                    Inicio
+                </a>
+
+                <a href="/catalogo">
+                    Catálogo
+                </a>
+
+                <a href="/contacto">
+                    Contáctanos
+                </a>
+
+                <a href="/ubicacion">
+                    Ubícanos
+                </a>
+
+                <a href="/admin/productos">
+                    Administración
+                </a>
+
+                <a href="/carrito">
+                    🛒 Carrito
+                </a>
+
+            </nav>
+
+        </div>
+
+    </header>
+
+
+    <main class="wrap sec">
+
+        <h1>
+            Finalizar compra
+        </h1>
+
+
+        <div class="checkout">
+
+
+            <!-- Formulario de compra -->
+
+            <form
+                class="form"
+                action="/checkout"
+                method="post">
+
+
+                <input
+                    type="hidden"
+                    th:name="${_csrf.parameterName}"
+                    th:value="${_csrf.token}">
+
+
+                <label>
+
+                    Nombre completo
+
+                    <input
+                        name="nombre"
+                        required>
+
+                </label>
+
+
+                <label>
+
+                    DNI / RUC
+
+                    <input
+                        name="documento">
+
+                </label>
+
+
+                <label>
+
+                    Correo
+
+                    <input
+                        type="email"
+                        name="email">
+
+                </label>
+
+
+                <label>
+
+                    Teléfono
+
+                    <input
+                        name="telefono">
+
+                </label>
+
+
+                <label class="wide">
+
+                    Dirección
+
+                    <input
+                        name="direccion">
+
+                </label>
+
+
+                <label>
+
+                    Comprobante
+
+                    <select name="comprobante">
+
+                        <option>
+                            BOLETA
+                        </option>
+
+                        <option>
+                            FACTURA
+                        </option>
+
+                    </select>
+
+                </label>
+
+
+                <label>
+
+                    Método de pago
+
+                    <select name="metodoPago">
+
+                        <option>
+                            YAPE
+                        </option>
+
+                        <option>
+                            PLIN
+                        </option>
+
+                        <option>
+                            TARJETA
+                        </option>
+
+                        <option>
+                            EFECTIVO
+                        </option>
+
+                    </select>
+
+                </label>
+
+
+                <div class="note wide">
+
+                    ℹ️ El proyecto registra el método de pago.
+                    Para cobrar dinero real se necesita integrar
+                    las APIs/cuentas oficiales del negocio.
+
+                </div>
+
+
+                <button class="btn wide">
+
+                    Confirmar pedido y generar comprobante
+
+                </button>
+
+
+            </form>
+
+
+            <!-- Resumen de compra -->
+
+            <aside class="summary">
+
+                <h2>
+                    Resumen
+                </h2>
+
+
+                <div th:each="i : ${cart}">
+
+                    <span
+                        th:text="${i.nombre} + ' × ' + ${i.cantidad}">
+                    </span>
+
+
+                    <b
+                        th:text="'S/ ' + ${i.precio * i.cantidad}">
+                    </b>
+
+                </div>
+
+            </aside>
+
+
+        </div>
+
+    </main>
+
+
+</body>
+
+</html>
+```

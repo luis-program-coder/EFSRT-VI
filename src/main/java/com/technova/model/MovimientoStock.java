@@ -1,0 +1,3 @@
+package com.technova.model;
+import jakarta.persistence.*; import java.time.LocalDateTime;
+@Entity @Table(name="movimiento_stock") public class MovimientoStock { @Id @GeneratedValue(strategy=GenerationType.IDENTITY) @Column(name="id_movimiento") Long id; @Column(name="id_producto") Long productoId; String tipo; Integer cantidad; @Column(name="stock_anterior") Integer stockAnterior; @Column(name="stock_nuevo") Integer stockNuevo; String motivo; LocalDateTime fecha; @Column(name="id_usuario") Long usuarioId; public MovimientoStock(){} public MovimientoStock(Long p,String t,int c,int a,int n,String m,Long u){productoId=p;tipo=t;cantidad=c;stockAnterior=a;stockNuevo=n;motivo=m;fecha=LocalDateTime.now();usuarioId=u;} }

@@ -1,0 +1,255 @@
+```html
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <title>Comprobante | TechNova</title>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet"
+          href="/css/style.css">
+
+    <script defer
+            src="/js/app.js">
+    </script>
+
+</head>
+
+
+<body>
+
+    <header>
+
+        <div class="wrap nav">
+
+            <a class="logo"
+               href="/">
+                Tech<span>Nova</span>
+            </a>
+
+
+            <nav>
+
+                <a href="/">
+                    Inicio
+                </a>
+
+                <a href="/catalogo">
+                    Catálogo
+                </a>
+
+                <a href="/contacto">
+                    Contáctanos
+                </a>
+
+                <a href="/ubicacion">
+                    Ubícanos
+                </a>
+
+                <a href="/admin/productos">
+                    Administración
+                </a>
+
+                <a href="/carrito">
+                    🛒 Carrito
+                </a>
+
+            </nav>
+
+        </div>
+
+    </header>
+
+
+    <main class="wrap sec">
+
+
+        <!-- Comprobante -->
+
+        <div class="receipt"
+             id="print">
+
+
+            <div class="title">
+
+                <h2>
+                    Tech<span>Nova</span>
+                </h2>
+
+
+                <b th:text="${pedido.comprobante}">
+                </b>
+
+            </div>
+
+
+            <p>
+
+                N.º
+
+                <b th:text="${pedido.numero}">
+                </b>
+
+                ·
+
+                <span
+                    th:text="${#temporals.format(pedido.fecha, 'dd/MM/yyyy HH:mm')}">
+                </span>
+
+            </p>
+
+
+            <p>
+
+                <b>
+                    Cliente:
+                </b>
+
+                <span th:text="${pedido.clienteNombre}">
+                </span>
+
+                ·
+
+                <span th:text="${pedido.documento}">
+                </span>
+
+            </p>
+
+
+            <p>
+
+                <b>
+                    Pago:
+                </b>
+
+                <span th:text="${pedido.metodoPago}">
+                </span>
+
+            </p>
+
+
+            <!-- Detalle de productos -->
+
+            <table>
+
+                <tr>
+
+                    <th>
+                        Producto
+                    </th>
+
+                    <th>
+                        Cant.
+                    </th>
+
+                    <th>
+                        Importe
+                    </th>
+
+                </tr>
+
+
+                <tr th:each="d : ${detalles}">
+
+                    <td th:text="${d.productoNombre}">
+                    </td>
+
+                    <td th:text="${d.cantidad}">
+                    </td>
+
+                    <td th:text="'S/ ' + ${d.importe}">
+                    </td>
+
+                </tr>
+
+            </table>
+
+
+            <!-- Totales -->
+
+            <div class="totals">
+
+                <p>
+
+                    Subtotal
+
+                    <b th:text="'S/ ' + ${pedido.subtotal}">
+                    </b>
+
+                </p>
+
+
+                <p>
+
+                    IGV referencial
+
+                    <b th:text="'S/ ' + ${pedido.igv}">
+                    </b>
+
+                </p>
+
+
+                <h2>
+
+                    TOTAL
+
+                    <span
+                        th:text="'S/ ' + ${pedido.total}">
+                    </span>
+
+                </h2>
+
+            </div>
+
+
+        </div>
+
+
+        <!-- Acciones -->
+
+        <div class="actions center">
+
+
+            <button
+                class="btn"
+                onclick="window.print()">
+
+                🖨️ Imprimir
+
+            </button>
+
+
+            <a
+                class="btn secondary"
+                href="/catalogo">
+
+                Seguir comprando
+
+            </a>
+
+
+            <a
+                class="btn whatsapp"
+                target="_blank"
+                th:href="'https://wa.me/51999999999?text=Pedido%20' + ${pedido.numero}">
+
+                WhatsApp
+
+            </a>
+
+
+        </div>
+
+
+    </main>
+
+
+</body>
+
+</html>
+```
